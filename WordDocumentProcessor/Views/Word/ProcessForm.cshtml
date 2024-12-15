@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Process Form";
+}
+
+<h2>Upload Word Documents</h2>
+
+<form method="post" enctype="multipart/form-data" asp-action="ProcessDocuments">
+    <div class="form-group">
+        <label for="filesWithPaths">Select Word Files:</label>
+        <input type="file" name="files" id="filesWithPaths" class="form-control" multiple required accept=".docx,.doc" />
+    </div>
+    <div class="form-group">
+        <label for="outputPath">Output Path for Report:</label>
+        <input type="text" name="outputPath" id="outputPath" class="form-control" placeholder="Enter output path" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Process Files</button>
+</form>
+
+
+
+

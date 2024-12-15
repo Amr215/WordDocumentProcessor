@@ -1,0 +1,106 @@
+﻿@model WordDocumentProcessor.ViewModels.ResultViewModel
+
+<h2 style="text-align:center; color:#333;">Processed Files Report</h2>
+
+<h3 style="color:#555;">Total Word Count: @Model.Report.TotalWordCount</h3>
+<a asp-action="ProcessForm" class="btn btn-secondary">Back to Upload</a>
+
+<h4>Files Processed:</h4>
+<table class="report-table">
+    <thead>
+        <tr>
+            <th>File Name</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Creation Date</th>
+            <th>Word Count</th>
+            <th>Page Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var fileMetadata in Model.ListMetadata)
+        {
+            <tr>
+                <td class="@(string.IsNullOrWhiteSpace(fileMetadata.FileName) ? "missing-data" : "")">
+                    @(string.IsNullOrWhiteSpace(fileMetadata.FileName) ? "Missing" : fileMetadata.FileName)
+                </td>
+                <td class="@(string.IsNullOrWhiteSpace(fileMetadata.Title) ? "missing-data" : "")">
+                    @(string.IsNullOrWhiteSpace(fileMetadata.Title) ? "Missing" : fileMetadata.Title)
+                </td>
+                <td class="@(string.IsNullOrWhiteSpace(fileMetadata.Author) ? "missing-data" : "")">
+                    @(string.IsNullOrWhiteSpace(fileMetadata.Author) ? "Missing" : fileMetadata.Author)
+                </td>
+                <td class="@(fileMetadata.CreationDate == null ? "missing-data" : "")">
+                    @(fileMetadata.CreationDate == null ? "Missing" : fileMetadata.CreationDate?.ToString("yyyy-MM-dd"))
+                </td>
+                <td class="@(fileMetadata.WordCount == null ? "missing-data" : "")">
+                    @(fileMetadata.WordCount == null ? "Missing" : fileMetadata.WordCount.ToString())
+                </td>
+                <td class="@(fileMetadata.PageCount == null ? "missing-data" : "")">
+                    @(fileMetadata.PageCount == null ? "Missing" : fileMetadata.PageCount.ToString())
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h4>Files with Missing Metadata:</h4>
+<ul class="missing-files-list">
+    @foreach (var fileName in Model.Report.FilesWithMissingMetadata)
+    {
+        <li>@fileName</li>
+    }
+</ul>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2, h3, h4 {
+        margin-bottom: 15px;
+    }
+
+    .report-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+        .report-table th, .report-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .report-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .report-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+    .missing-data {
+        background-color: #f8d7da;
+        color: #721c24;
+    }
+
+    .missing-files-list {
+        padding-left: 20px;
+        list-style-type: disc;
+    }
+
+        .missing-files-list li {
+            color: #d9534f;
+        }
+</style>
+
+
+
+

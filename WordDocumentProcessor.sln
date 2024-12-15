@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordDocumentProcessor", "WordDocumentProcessor\WordDocumentProcessor.csproj", "{11DDD931-B644-4663-BB7C-0072F3A4CCDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11DDD931-B644-4663-BB7C-0072F3A4CCDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DDD931-B644-4663-BB7C-0072F3A4CCDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DDD931-B644-4663-BB7C-0072F3A4CCDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DDD931-B644-4663-BB7C-0072F3A4CCDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3FD1EA8-477D-458E-B27C-B57F022CCC74}
+	EndGlobalSection
+EndGlobal
